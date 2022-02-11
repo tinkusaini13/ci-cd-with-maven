@@ -1,25 +1,17 @@
-pipeline {
+pipeline{
     agent { label 'master' }
-        stages {
-        stage ('Initialize') {
-            steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                '''
-            }
-        }
-
-        stage ('Build') {
-            steps {
-                
-                sh 'mvn -f /root/project/pom.xml clean package' 
-            }
-            post {
-                success {
-                    junit 'target/surefire-reports/**/*.xml' 
-                }
-            }
-        }
+    stages{
+        stage("git checkout")
+        {
+            steps{
+                    git 'https://github.com/tinkusaini13/g2/'
+                 }
+          }
+stage("maven build"){
+steps{
+sh "mvn -f /root/project/gs-maven/complete clean package"
+}
+}
+      
     }
 }
