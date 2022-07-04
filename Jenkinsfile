@@ -4,7 +4,7 @@ pipeline{
         stage("git checkout")
         {
             steps{
-                    git 'https://github.com/tinkusaini13/java-maven-jenkinsfile.git'
+                    git 'https://github.com/tinkusaini13/ci-cd-with-maven.git'
                  }
           }
 stage("maven build"){
