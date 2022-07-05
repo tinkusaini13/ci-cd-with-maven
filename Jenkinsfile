@@ -4,7 +4,8 @@ pipeline{
         stage("git checkout")
         {
             steps{
-                    git 'https://github.com/tinkusaini13/ci-cd-with-maven.git'
+                    #old jenkins version used git 'https://github.com/tinkusaini13/ci-cd-with-maven.git' 
+                    git url: 'https://github.com/tinkusaini13/ci-cd-with-maven.git', branch: 'main'
                  }
           }
 stage("maven build"){
